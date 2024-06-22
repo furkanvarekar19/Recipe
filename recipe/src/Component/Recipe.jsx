@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 function Recipe() {
   return (
-    <div> </div>
+    <div style={{textAlign:'center'}}> 
+    <h1> hello</h1>
+    </div>
   )
 }
 
-export default Recipe
+export default Recipe;

@@ -1,14 +1,15 @@
 
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Recipe from './Component/Recipe';
+
 
 function App() {
-  return (
-    <div style={{textAlign:'center'}}>
-    <h1>Recipe App</h1>
-    <input type="text" />
-    <button>serach</button>
-    </div>
-  );
+  <Routes>
+
+    <Route path='/recipe' element = {<Recipe/>}  />
+  </Routes>
+
 }
 
 export default App;
