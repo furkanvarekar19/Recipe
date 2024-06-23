@@ -5,10 +5,14 @@ import Recipe from './Component/Recipe';
 
 
 function App() {
-  <Routes>
 
-    <Route path='/recipe' element = {<Recipe/>}  />
+  return(
+    <Routes>
+
+    <Route path='Recipe' element = {<Recipe/>}  />
   </Routes>
+  )
+
 
 }
 
