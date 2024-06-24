@@ -4,3 +4,66 @@
 h1{
   color: #000;
 } */
+ body{
+  height: 100vh;
+  background-image: linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);
+  /* background-image: url(https://static.vecteezy.com/system/resources/previews/000/154/515/non_2x/hot-chili-habanero-recipe-hand-drown-vector-background-illustration.jpg); */
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+ }
+ .submit{
+   /* padding: 12px 15px; */
+   font-size: 20px;
+   letter-spacing: 2px;
+   font-weight: 600;
+   font-family:  Arial, Helvetica, sans-serif;
+   width: 220px;
+   height: 40px;
+   text-align: center;
+   border-radius: 5px;
+ }
+ label{
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-family: sans-serif;
+  
+ }
+input{
+  height: 30px;
+  width: 57%;
+  padding: 8px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #000;
+  font-size: 18px;
+}
+ .main_recipe{
+  height: 100vh;
+  width: 100%;
+  /* background-color: lightblue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ }
+ 
+ .recipe_box{
+  height: 550px;
+  width: 35%;
+  /* border: 1px solid #fff; */
+  border-radius: 12px;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+  background: #fcfcfc;
+  /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+  line-height: 30px;
+
+
+ }
