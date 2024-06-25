@@ -1,30 +1,36 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 
-function RecipeList() {
-  const loaction = useLocation();
-
-  const data = loaction.state;
-
+function RecipeList({recipes}) {
   const router = useNavigate();
-
-  function handsubmit(){
-    router("/Detailspage",{state:{data:data}});
-
-
-  }
-
-
 
 
   return (
-    <div  onClick={handsubmit}>
-        <h1>RecipeList</h1>
-        <h1> {data.title} </h1>
-        <p> {data.description} </p>
+    <div className='main_recipelist'>
+        <h1 style={{textAlign:'center'}}>RecipeList</h1>
+        <div className='recipeList'>
+          {
+            recipes.map((recipe ,index) =>(
+             
+              <div key={index}  className='recipe-box'>
+                <div onClick={()=> router(`/Detailspage/${index}`)} className='recipe-img'>
+                  <img src= {recipe.Image} alt='recipe' />
+                </div>
+
+                <div  onClick={()=> router(`/Detailspage/${index}`)}>
+                    <h1> {recipe.title} </h1>
+                    <p> {recipe.description} </p>
+                </div>
+
+              </div>
+            ))
+          }
+
+        </div>
+       
         
     </div>
   )
 }
 
-export default RecipeList
+export default RecipeList;

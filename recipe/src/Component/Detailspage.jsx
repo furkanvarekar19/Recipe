@@ -1,25 +1,32 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom';
 
-function Detailspage() {
+function Detailspage({recipes}) {
+  // const loaction = useLocation();
+  // const data1 = loaction.state;
 
-  const loaction = useLocation();
+  // const router = useNavigate();
 
-  const data1 = loaction.state;
-
- 
-
+  const {id} = useParams();
+  const recipe = recipes[id];
+  console.log(recipe);
 
   return (
-    <div>
-        <h1>Detailspage</h1>
-        <h1> {data1.data.title} </h1>
-        <p> {data1.data.description} </p>
-        <p> {data1.data.ingredients} </p>
-        <p> {data1.data.preparation} </p>
+    <div className='detail_page'>
+       <div>
+       <h1>{recipe.title}</h1>
+        <p>{recipe.description}</p>
+       </div>
+       <img src={recipe.Image} alt='image'/>
+
+       <div>
+        <p>{recipe.ingredients}</p>
+        <p>{recipe.preparation}</p>
+       </div>
 
     </div>
   )
 }
 
-export default Detailspage
+export default Detailspage;

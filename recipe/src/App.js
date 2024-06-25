@@ -4,19 +4,26 @@ import './App.css';
 import Recipe from './Component/Recipe';
 import Detailspage from './Component/Detailspage';
 import RecipeList from './Component/RecipeList';
+import { useState } from 'react';
 
 
 function App() {
 
+  const[recipes , setRecipes] = useState([]);
+
+  const addRecipe = (recipe) =>{
+    setRecipes([...recipes ,recipe])
+
+  }
+
+
   return(
    
     <Routes>
- 
-    
-    <Route path='/Recipe' element = {<Recipe/>}  />
-    <Route path='/Detailspage' element = {<Detailspage/>}  />
-    <Route path='/RecipeList' element = {<RecipeList/>}  />
-
+  
+    <Route path='/Recipe' element = {<Recipe addRecipe={addRecipe}/>} />
+    <Route path='/RecipeList' element = {<RecipeList recipes={recipes} />}/>
+    <Route path='/Detailspage/:id' element = {<Detailspage recipes={recipes}/>}/>
 
   </Routes>
   )

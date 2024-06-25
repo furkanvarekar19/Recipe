@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
-function Recipe() {
+function Recipe( {addRecipe}) {
 
    const [title , setTitle] = useState('');
   //  console.log(title);
@@ -12,34 +12,27 @@ function Recipe() {
   //  console.log(ingredients);
    const [preparation , setPreparation] = useState('');
   //  console.log(preparation);
-   const [Image , setImage] = useState(null);
+   const [Image , setImage] = useState('');
 
-   const [data , setData] = useState([]);
-
-   console.log(data);
-
- 
   const router = useNavigate();
 
-  //  function getValue(event){
-  //       setTitle(event.target.value);
-  //       setDescription(event.target.value);
-  //       setIngredients(event.target.value);
-  //       setPreparation(event.target.value); 
-  //  }
-   
+ 
   function dataSubmit(e){
     e.preventDefault();
-    
-    // setData([...data, title ,description , ingredients ,preparation]);
-     console.log(title,description,ingredients,preparation);
-    // setTitle('');
-    // setDescription('');
-    // setIngredients('');
-    // setPreparation('');
+     console.log(title,description,ingredients,preparation,Image);
 
-    router("/RecipeList",{state:{title:title,description:description,ingredients:ingredients,preparation:preparation}});
-    
+// router("/RecipeList",{state:{title:title,description:description,ingredients:ingredients,preparation:preparation,Image:Image}});
+          const newRecipe = {
+            title,
+            description,
+            ingredients,
+            preparation,
+            Image,
+          };
+          console.log(newRecipe);
+          addRecipe(newRecipe);
+          router("/RecipeList")
+
   }
 
 
@@ -47,28 +40,28 @@ function Recipe() {
     <>
     <div className='main_recipe'> 
     <div className='recipe_box'>
-    <h1>Recipe App</h1>
+    <h1 className='recipeheading'>Recipe App</h1>
       <form onSubmit={dataSubmit}>
             {/* title */}
         <label htmlFor="">title : </label>
-        <input type="text" value={data.title} name='title'  onChange= {(e) => setTitle(e.target.value)} /> <br /><br />
+        <input type="text"  name='title'  onChange= {(e) => setTitle(e.target.value)} /> <br /><br />
 
         {/* description */}
         <label htmlFor="">description : </label>
         {/* <textarea name="" id=""></textarea> <br /><br /> */}
-        <input type="text"  value={data.description} name='description' onChange= {(e) => setDescription(e.target.value) }/><br /><br />
+        <input type="text"   name='description' onChange= {(e) => setDescription(e.target.value) }/><br /><br />
 
         {/* ingredients */}
         <label htmlFor="">ingredients : </label>
-        <input type="text" value={data.ingredients}  name='ingredients'onChange= {(e) => setIngredients(e.target.value)} /><br /><br />
+        <input type="text"   name='ingredients'onChange= {(e) => setIngredients(e.target.value)} /><br /><br />
 
         {/* preparation */}
         <label htmlFor=""> preparation : </label>
-        <input type="text" value={data.preparation}  name='preparation'onChange= {(e) => setPreparation(e.target.value)} /><br /><br />
+        <input type="text"   name='preparation'onChange= {(e) => setPreparation(e.target.value)} /><br /><br />
         
          {/* Image */}
-        <label htmlFor="">Image Url : </label>
-        <input type="url" name="" id="" /> <br /><br />
+        <label >Image Url : </label>
+        <input type="text" name=""  onChange= {(e) => setImage(e.target.value)} /> <br /><br />
 
           {/* submit */}
       <input type="submit"  value='submit' className='submit'/>
