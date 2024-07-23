@@ -20,11 +20,9 @@ function App() {
   return(
    
     <Routes>
-  
-    <Route path='/Recipe' element = {<Recipe addRecipe={addRecipe}/>} />
+    <Route path='/' element = {<Recipe addRecipe={addRecipe}/>} />
     <Route path='/RecipeList' element = {<RecipeList recipes={recipes} />}/>
     <Route path='/Detailspage/:id' element = {<Detailspage recipes={recipes}/>}/>
-
   </Routes>
   )
 
